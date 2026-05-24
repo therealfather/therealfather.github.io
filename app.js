@@ -101,34 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(missionForm);
       
       // Send to PHP
-      fetch('https://formspree.io/f/xvzybgzb', {
-        method: 'POST',
-        body: formData,
-        headers: {
-        'Accept': 'application/json'
-    }
-  })
-.then(response => response.json())
-.then(data => {
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          document.getElementById('dialog-success').showModal();
-          missionForm.reset();
-        } else {
-          alert('Eroare: ' + data.message);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Eroare la trimitere. Detalii: ' + error.message);
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      });
-    });
-  }
+fetch('https://formspree.io/f/xvzybgzb', {
+  method: 'POST',
+  body: formData
+})
+.then(() => {
+  document.getElementById('dialog-success').showModal();
+  missionForm.reset();
+})
+.catch(error => {
+  alert('Eroare la trimitere');
+});
 
   // TERMINAL BLINKING CURSOR
   const terminal = document.getElementById('terminal-text');
