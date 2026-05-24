@@ -84,14 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClose = document.getElementById('close-dialog-btn');
 
   // FORM HANDLER
-  const missionForm = document.getElementById('mission-form');
+const missionForm = document.getElementById('mission-form');
 
-  if (missionForm) {
+if (missionForm) {
   missionForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const submitBtn = missionForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
+
     submitBtn.textContent = 'Se trimite...';
     submitBtn.disabled = true;
 
@@ -100,14 +101,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const res = await fetch('https://formspree.io/f/xvzybgzb', {
         method: 'POST',
-        body: formData
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      // NU verificăm response.ok (Formspree poate răspunde diferit)
-      
+      // IMPORTANT: Formspree poate returna 200 chiar dacă body nu e JSON
+      if (!res.ok) throw new Error('Request failed');
+
+      // SUCCESS UI (NES STYLE)
       const dialog = document.getElementById('dialog-success');
 
-      if (dialog && dialog.showModal) {
+      if (dialog) {
         dialog.innerHTML = `
           <div class="nes-container is-dark with-title" style="padding:20px;">
             <p class="title">SYSTEM</p>
@@ -123,14 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
       missionForm.reset();
 
     } catch (err) {
-      console.log("REAL ERROR:", err);
+      console.log('Form error:', err);
+
+      // NU mai afișăm eroare falsă dacă de fapt a mers
       alert('Eroare la trimitere');
     } finally {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-      }
-    });
-  }
+    }
+  });
+}
 
   // TERMINAL BLINK
   const terminal = document.getElementById('terminal-text');
