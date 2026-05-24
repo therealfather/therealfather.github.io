@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALEX SEO AUDIT | SEO • AEO • GEO Audit</title>
+  <meta name="description"
+    content="Audit SEO, AEO si GEO gratuit pentru orice site web. Analiza reala bazata pe crawler automat.">
+
+  <!-- Press Start 2P font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- NES.css -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+  <!-- Custom Layout CSS -->
+  <link rel="stylesheet" href="style.css?v=1.1">
+
+  <!-- jsPDF for Professional PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+  <!-- Hyperdrive Space Background -->
+  <canvas id="hyperdrive-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <section class="nes-container is-transparent with-title is-centered">
+        <h1>ALEX SEO AUDIT</h1>
+        <p>Sistemul de audit SEO, AEO &amp; GEO pe 8-biți</p>
+        <p>Beneficiati de 20 de Pagini Analizate in varianta Free</p>
+        <p>Varianta Pro - 1000 de pagini / Varianta Custome la cerere</p>
+      </section>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="nes-container is-transparent with-title">
+        <p class="title">PLAYER 1: INTRODU URL</p>
+        <div class="input-flex">
+          <input type="url" id="url-input" class="nes-input" placeholder="https://siteul-tau.ro" autocomplete="off" />
+          <button type="button" id="audit-btn" class="nes-btn is-error">Scaneaza!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGEND SECTION -->
+    <section class="legend-section">
+
+      <!-- Score Baseline Box -->
+      <div class="nes-container is-transparent with-title legend-box">
+        <p class="title">Scor Baseline</p>
+        <div class="baseline-grid">
+
+          <div class="nes-container with-title is-rounded service-card baseline-item baseline-bad">
+            <p class="title">LEVEL_1</p>
+            <div class="icon-line"><i class="nes-icon close is-medium"></i></div>
+            <h3>CRITIC</h3>
+            <p class="metric-desc-text">Erori grave. Site-ul are probleme serioase de indexare sau structura.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-error">0 - 49</span></span>
+            </div>
+          </div>
+
+          <div class="nes-container with-title is-rounded service-card baseline-item baseline-medium">
+            <p class="title">LEVEL_2</p>
+            <div class="icon-line"><i class="nes-icon is-medium star"></i></div>
+            <h3>MEDIU</h3>
+            <p class="metric-desc-text">Performanta acceptabila, dar exista aspecte clare de imbunatatit.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-primary">50 - 79</span></span>
+            </div>
+          </div>
+
+          <div class="nes-container with-title is-rounded service-card baseline-item baseline-good">
+            <p class="title">LEVEL_3</p>
+            <div class="icon-line"><i class="nes-icon trophy is-medium"></i></div>
+            <h3>EXCELENT</h3>
+            <p class="metric-desc-text">Site optimizat, vizibil si indexat corect de motoarele de cautare.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-success">80 - 100</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Metric Legend Box -->
+      <div class="nes-container is-transparent with-title legend-box">
+        <p class="title">Legenda Metrice</p>
+        <div class="metrics-legend-grid">
+
+          <div class="nes-container with-title is-rounded service-card metric-legend-card">
+            <p class="title">SEO_METRIC</p>
+            <div class="icon-line"><i class="nes-icon star is-medium"></i></div>
+            <h3>SEO Rank</h3>
+            <p class="metric-desc-text">Cum te gaseste Google. Verifica titluri, Meta, H1 si alt-uri la imagini.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-success">TOTI</span></span>
+            </div>
+            <p class="metric-legend-biz">Esential pentru orice business — local, e-commerce, blog, B2B.</p>
+          </div>
+
+          <div class="nes-container with-title is-rounded service-card metric-legend-card">
+            <p class="title">AEO_METRIC</p>
+            <div class="icon-line"><i class="nes-icon like is-medium"></i></div>
+            <h3>AEO Rank</h3>
+            <p class="metric-desc-text">Cum te gaseste Siri, Alexa si Google Snippets. Schema JSON-LD, H2/H3.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-primary">SELECTIV</span></span>
+            </div>
+            <p class="metric-legend-biz">Vital pentru: clinici, avocati, restaurante, servicii locale.</p>
+          </div>
+
+          <div class="nes-container with-title is-rounded service-card metric-legend-card">
+            <p class="title">GEO_METRIC</p>
+            <div class="icon-line"><i class="nes-icon coin is-medium"></i></div>
+            <h3>GEO Rank</h3>
+            <p class="metric-desc-text">Cum te citeaza ChatGPT, Perplexity si Gemini. Densitate text si linkuri.</p>
+            <div class="badge-wrapper">
+              <span class="nes-badge"><span class="is-error">AVANSAT</span></span>
+            </div>
+            <p class="metric-legend-biz">Ideal pentru: agentii, publicatii, experti cu articole lungi.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Loader -->
+    <section id="loader" class="nes-container with-title loader-container hidden">
+      <p class="title">Se Scaneaza...</p>
+      <p class="loader-text" id="loader-msg">Initializare Crawler...</p>
+      <progress class="nes-progress is-pattern" value="0" max="100" id="progress-bar"></progress>
+    </section>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <div id="pdf-header" class="hidden" style="text-align:center; padding: 10px 0;">
+        <p id="report-url" style="font-size:0.6rem; color:#555;"></p>
+      </div>
+
+      <!-- Score Cards -->
+      <div class="dashboard-grid">
+
+        <div class="nes-container with-title is-rounded service-card metric-card" id="card-seo">
+          <p class="title">SEO_SCORE</p>
+          <div class="icon-line"><i class="nes-icon star is-large"></i></div>
+          <h3>SEO Score</h3>
+          <p class="metric-desc-text">Search Engine Optimization<br />(Titlu, Meta, H1, ALT)</p>
+          <div class="score-wrapper">
+            <span class="score-value score" id="seo-score">0</span><span class="score-max">/100</span>
+          </div>
+          <div class="progress-container">
+            <progress class="nes-progress is-success" value="0" max="100" id="seo-progress"></progress>
+          </div>
+        </div>
+
+        <div class="nes-container with-title is-rounded service-card metric-card" id="card-aeo">
+          <p class="title">AEO_SCORE</p>
+          <div class="icon-line"><i class="nes-icon trophy is-large"></i></div>
+          <h3>AEO Score</h3>
+          <p class="metric-desc-text">Answer Engine Optimization<br />(Schema, Headings, Liste)</p>
+          <div class="score-wrapper">
+            <span class="score-value score" id="aeo-score">0</span><span class="score-max">/100</span>
+          </div>
+          <div class="progress-container">
+            <progress class="nes-progress is-warning" value="0" max="100" id="aeo-progress"></progress>
+          </div>
+        </div>
+
+        <div class="nes-container with-title is-rounded service-card metric-card" id="card-geo">
+          <p class="title">GEO_SCORE</p>
+          <div class="icon-line"><i class="nes-icon coin is-large"></i></div>
+          <h3>GEO Score</h3>
+          <p class="metric-desc-text">Generative Engine Opt.<br />(Text, Autoritate Externa)</p>
+          <div class="score-wrapper">
+            <span class="score-value score" id="geo-score">0</span><span class="score-max">/100</span>
+          </div>
+          <div class="progress-container">
+            <progress class="nes-progress is-primary" value="0" max="100" id="geo-progress"></progress>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Magic Helper -->
+      <section class="nes-container with-title helper-section" id="helper-section">
+        <p class="title">Mentorul Tehnic</p>
+        <div class="chat-container">
+          <div class="avatar-box">
+            <i class="nes-phone"></i>
+          </div>
+          <div class="speech-bubble">
+            <div class="speech-text">
+              <p><strong>Analiza Realizata!</strong></p>
+              <p>Am scanat site-ul tau. Iata vulnerabilitatile identificate:</p>
+              <ul class="idea-list" id="magic-ideas-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Actions Area (PDF + Donate) -->
+    <div id="actions-area" class="hidden">
+      <div class="actions-flex">
+        <button type="button" id="pdf-btn" class="nes-btn is-primary">
+          <i class="nes-icon trophy is-small"></i>&nbsp;Raport PDF
+        </button>
+
+        <a href="https://www.paypal.com/donate/?hosted_button_id=3VKP5ACRSGT32" target="_blank" id="donate-btn"
+          class="nes-btn is-success">
+          <i class="nes-icon coin is-small"></i>&nbsp;Doneaza cu PayPal
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="nes-footer">
+      <p>&copy; 2026 ALEX SEO AUDIT &mdash; Made with <i class="nes-icon heart is-small"></i> by Tamas Alex</p>
+      <p style="margin-top: 8px; font-size:0.5rem; color:#777;">Deep Crawler • Real-time Audit • jsPDF Export</p>
+      <p style="margin-top: 8px; font-size:0.5rem; color:#777;">Website-ul nu stocheaza date sau alte caractere
+        personale, PDF-urile se sterg automat daca nu sunt descarcate</p>
+    </footer>
+
+  </div>
+
+  <script>
+    /* =========================================
+       HYPERDRIVE STARFIELD — smooth, non-epileptic
+       Stars drift slowly outward from centre,
+       then streak into warp lines as they near edge.
+       Speed is kept gentle to avoid strobing.
+    ========================================= */
+    (function () {
+      const canvas = document.getElementById('hyperdrive-canvas');
+      const ctx = canvas.getContext('2d');
+
+      const NUM_STARS = 320;
+      const BASE_SPEED = 0.35;   // very slow at centre
+      const MAX_SPEED = 2.8;    // gentle max warp speed
+      const WARP_START = 0.55;   // fraction of radius where streak begins
+
+      let W, H, CX, CY, MAX_R;
+      let stars = [];
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        CX = W / 2;
+        CY = H / 2;
+        MAX_R = Math.sqrt(CX * CX + CY * CY);
+      }
+
+      function randomStar() {
+        // random angle, start near centre
+        const angle = Math.random() * Math.PI * 2;
+        const r = Math.random() * MAX_R * 0.25;
+        return {
+          angle,
+          r,
+          size: Math.random() * 1.4 + 0.3,
+          // Colour: mostly white/blue-white, occasional warm
+          hue: Math.random() < 0.15 ? 200 + Math.random() * 40 : 220 + Math.random() * 20,
+          alpha: 0.6 + Math.random() * 0.4
+        };
+      }
+
+      function initStars() {
+        stars = [];
+        for (let i = 0; i < NUM_STARS; i++) stars.push(randomStar());
+      }
+
+      function draw() {
+        // Dark space background with slight fade trail
+        ctx.fillStyle = 'rgba(2, 4, 18, 0.45)';
+        ctx.fillRect(0, 0, W, H);
+
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+
+          // Speed ramps up as star moves away from centre
+          const progress = s.r / MAX_R;          // 0 → 1
+          const speed = BASE_SPEED + (MAX_SPEED - BASE_SPEED) * (progress * progress);
+          s.r += speed;
+
+          const x = CX + Math.cos(s.angle) * s.r;
+          const y = CY + Math.sin(s.angle) * s.r;
+
+          if (s.r > MAX_R || x < 0 || x > W || y < 0 || y > H) {
+            stars[i] = randomStar();
+            continue;
+          }
+
+          // Streak length: only visible past WARP_START threshold
+          let streakLen = 0;
+          if (progress > WARP_START) {
+            streakLen = (progress - WARP_START) / (1 - WARP_START) * 28 * (speed / MAX_SPEED);
+          }
+
+          const brightness = Math.min(1, 0.4 + progress * 0.9);
+          const alpha = s.alpha * brightness;
+
+          if (streakLen > 0.5) {
+            // Draw trailing streak
+            const tx = x - Math.cos(s.angle) * streakLen;
+            const ty = y - Math.sin(s.angle) * streakLen;
+            const grad = ctx.createLinearGradient(tx, ty, x, y);
+            grad.addColorStop(0, `hsla(${s.hue},90%,90%,0)`);
+            grad.addColorStop(1, `hsla(${s.hue},90%,98%,${alpha})`);
+            ctx.beginPath();
+            ctx.moveTo(tx, ty);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = s.size * (0.6 + progress * 0.8);
+            ctx.stroke();
+          } else {
+            // Simple dot
+            ctx.beginPath();
+            ctx.arc(x, y, s.size * (0.3 + progress * 0.7), 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${s.hue},80%,95%,${alpha})`;
+            ctx.fill();
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => { resize(); initStars(); });
+      resize();
+      initStars();
+      draw();
+    })();
+  </script>
+  <script src="app.js"></script>
+</body>
+
+</html>
