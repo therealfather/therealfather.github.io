@@ -105,11 +105,15 @@ fetch('https://formspree.io/f/xvzybgzb', {
   method: 'POST',
   body: formData
 })
-.then(() => {
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network error');
+  }
   document.getElementById('dialog-success').showModal();
   missionForm.reset();
 })
 .catch(error => {
+  console.log(error);
   alert('Eroare la trimitere');
 });
 
