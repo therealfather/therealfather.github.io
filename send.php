@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email_body = "
         <h2>Misiune Noua - Web Alex Portfolio</h2>
         <p><strong>Nume/Brand:</strong> $name</p>
+        <p><strong>Telefon:</strong> $phone</p>
         <p><strong>Email:</strong> $email</p>
         <p><strong>Brief Misiune:</strong></p>
         <p>" . nl2br($message) . "</p>
