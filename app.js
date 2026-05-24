@@ -85,49 +85,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // FORM HANDLER
   const missionForm = document.getElementById('mission-form');
-  if(missionForm) {
-    missionForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-  
-      const submitBtn = missionForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Se trimite...';
-      submitBtn.disabled = true;
-  
+
+  if (missionForm) {
+  missionForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = missionForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Se trimite...';
+    submitBtn.disabled = true;
+
+    try {
       const formData = new FormData(missionForm);
-  
-      fetch('https://formspree.io/f/xvzybgzb', {
+
+      const res = await fetch('https://formspree.io/f/xvzybgzb', {
         method: 'POST',
         body: formData
-      })
-      .then(() => {
-        // 🔥 NES STYLE SUCCESS MODAL
-        const dialog = document.getElementById('dialog-success');
-
-        if (dialog && dialog.showModal) {
-          dialog.innerHTML = `
-            <div class="nes-container is-dark with-title" style="padding:20px;">
-              <p class="title">SYSTEM</p>
-              <p style="color:#00ff99;">✔ Misiune trimisa cu succes!</p>
-              <button class="nes-btn is-primary" onclick="this.closest('dialog').close()">OK</button>
-            </div>
-          `;
-
-          dialog.showModal();
-        } else {
-          alert('✔ Misiune trimisa cu succes!');
-        }
-
-        missionForm.reset();
-      })
-      .catch(error => {
-        console.log(error);
-        alert('Eroare la trimitere');
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
       });
+
+      // NU verificăm response.ok (Formspree poate răspunde diferit)
+      
+      const dialog = document.getElementById('dialog-success');
+
+      if (dialog && dialog.showModal) {
+        dialog.innerHTML = `
+          <div class="nes-container is-dark with-title" style="padding:20px;">
+            <p class="title">SYSTEM</p>
+            <p style="color:#00ff99;">✔ Misiune trimisa cu succes!</p>
+            <button class="nes-btn is-primary" onclick="this.closest('dialog').close()">OK</button>
+          </div>
+        `;
+        dialog.showModal();
+      } else {
+        alert('✔ Misiune trimisa cu succes!');
+      }
+
+      missionForm.reset();
+
+    } catch (err) {
+      console.log("REAL ERROR:", err);
+      alert('Eroare la trimitere');
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      }
     });
   }
 
