@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = htmlspecialchars($_POST['phone'] ?? '');
     
     // Validare
-    if (empty($name) || empty($email) || empty($message)) {
+    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
         echo json_encode(['success' => false, 'message' => 'Toate câmpurile sunt obligatorii']);
         exit;
     }
