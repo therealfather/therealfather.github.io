@@ -88,25 +88,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if(missionForm) {
     missionForm.addEventListener('submit', (e) => {
       e.preventDefault();
-    
+  
       const submitBtn = missionForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Se trimite...';
       submitBtn.disabled = true;
-    
+  
       const formData = new FormData(missionForm);
-    
+  
       fetch('https://formspree.io/f/xvzybgzb', {
         method: 'POST',
         body: formData
       })
       .then(() => {
+        // 🔥 NES STYLE SUCCESS MODAL
         const dialog = document.getElementById('dialog-success');
-          if (dialog && dialog.showModal) {
-            dialog.showModal();
-          } else {
-          alert('Misiune trimisa cu succes!');
-      }
+
+        if (dialog && dialog.showModal) {
+          dialog.innerHTML = `
+            <div class="nes-container is-dark with-title" style="padding:20px;">
+              <p class="title">SYSTEM</p>
+              <p style="color:#00ff99;">✔ Misiune trimisa cu succes!</p>
+              <button class="nes-btn is-primary" onclick="this.closest('dialog').close()">OK</button>
+            </div>
+          `;
+
+          dialog.showModal();
+        } else {
+          alert('✔ Misiune trimisa cu succes!');
+        }
+
         missionForm.reset();
       })
       .catch(error => {
