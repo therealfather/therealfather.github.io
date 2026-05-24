@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p><strong>Brief Misiune:</strong></p>
         <p>" . nl2br($message) . "</p>
         <hr>
-        <p><small>Trimis de pe: " . $_SERVER['HTTP_REFERER'] . "</small></p>
+        <p><small>Trimis de pe: " . ($_SERVER['HTTP_REFERER'] ?? 'Necunoscut') . "</small></p>
     ";
     
     // Headers HTML
