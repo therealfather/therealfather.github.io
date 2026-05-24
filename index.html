@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALEX WEB | Web Developer, Ads Specialist & Graphic Designer</title>
+
+  <meta name="description"
+    content="ALEX WEB - Arhitect Web & Specialist Ads. Creare site-uri web rapide, magazine online, campanii Meta/Google/TikTok cu focus pe ROAS si graphic design.">
+  <meta name="keywords"
+    content="ALEX WEB, Web Developer Romania, Creare site web, Magazin online, Specialist Ads, Google Ads, Meta Ads, TikTok Ads, Graphic Design, Optimizare SEO, Web Design Custom, Marketing Performance">
+
+  <!-- The ONLY Font: Press Start 2P -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Core NES.css Frame -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+  <!-- Our Alignment CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+
+  <!-- Hyperdrive Space Background -->
+  <canvas id="hyperdrive-canvas"></canvas>
+
+  <!-- ===============================
+       PRO NAVBAR (NES CLASSES ONLY)
+       =============================== -->
+  <div class="nav-wrapper">
+    <div class="nes-container is-dark is-rounded navbar">
+      <div class="logo">
+        <i class="nes-icon is-small hit"></i>
+        <span>ALEX WEB</span>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button class="nes-btn is-small" id="mobile-menu-btn" style="display: none; padding: 2px 8px;">☰</button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nes-btn is-error"><span class="is-error">Start</span></a>
+        <a href="#servicii" class="nes-btn is-primary"><span class="is-primary">Skilluri</span></a>
+        <a href="#stats" class="nes-btn is-success"><span class="is-success">Date</span></a>
+        <a href="#contact" class="nes-btn is-warning is-small">Contact</a>
+        <a href="#seo" class="nes-btn"><span class="is-primary">SEO</span></a>
+        
+        <!-- Toggle Buttons Moved to Nav -->
+        <button type="button" class="nes-btn is-error is-small" id="theme-toggle" style="padding: 2px 8px; font-size: 0.7rem;">LIGHT</button>
+        <button type="button" class="nes-btn is-primary is-small" id="music-toggle" style="padding: 2px 8px; font-size: 0.7rem;">ON</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-container">
+
+    <!-- ===============================
+         HERO SECTION (CLEAN GRID)
+         =============================== -->
+    <section class="section-padding" id="hero">
+      <div class="hero-grid">
+
+        <!-- Left: Text Box -->
+        <div class="nes-container is-dark with-title hero-text-box">
+          <p class="title">Player 1: Alex</p>
+          <div class="type-container">
+            <span class="nes-text is-success">> status: </span>
+            <span id="typewriter">Online & Ready</span>
+            <span class="type-cursor">_</span>
+          </div>
+
+          <h1 class="pro-h1">Arhitect Web &<br><span class="nes-text is-primary">PPC Specialist</span></h1>
+
+          <p class="pro-p">
+            Un "one-man show" dedicat performantei pure.
+            Construiesc sisteme digitale: de la site-uri care se incarca instant, la campanii Ads (Meta/Google)
+            orientate matematic spre conversie.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#servicii" class="nes-btn is-primary">Inspecteaza Clase</a>
+            <a href="#contact" class="nes-btn">Initializeaza Proiect</a>
+          </div>
+        </div>
+
+        <!-- Right: Visual Box (Terminal Log Graphic) -->
+        <div class="hero-visual-box float-anim">
+          <div class="nes-container is-dark with-title terminal-graphic">
+            <p class="title">server_logs.exe</p>
+            <div class="terminal-body" id="terminal-text">
+              <p class="nes-text is-success">> Booting Web Engine...</p>
+              <p class="nes-text is-warning">> Compiling Assets: 100%</p>
+              <p class="nes-text is-primary">> Deploying Ads algs...</p>
+              <p class="nes-text is-error">> ROAS Target: 450%</p>
+              <p class="nes-text">> Awaiting command_ _</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===============================
+         SERVICES SECTION (SYMMETRIC)
+         =============================== -->
+    <section class="section-padding" id="servicii">
+      <div class="section-title">
+        <h2 class="pro-h2"><i class="nes-icon is-medium star"></i> Arborele de Abilitati</h2>
+        <p class="pro-sub">Ce unelte folosesc pentru a-ti creste business-ul.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="nes-container is-dark with-title is-rounded service-card">
+          <p class="title">Tech_Branch</p>
+          <div class="icon-line"><i class="nes-icon is-large coin"></i></div>
+          <h3 class="pro-h3">Web Dev</h3>
+          <p class="pro-p-small">
+            Linii de cod curate, fara teme WordPress bloatate. Arhitectura tehnica ce obtine scoruri maxime in Google
+            PageSpeed.
+          </p>
+          <ul class="nes-list is-circle pro-list">
+            <li>Landing Pages Rapid</li>
+            <li>Magazine Online Viteza</li>
+            <li>Optimizare Tehnica SEO</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="nes-container is-dark with-title is-rounded service-card">
+          <p class="title">Growth_Branch</p>
+          <div class="icon-line"><i class="nes-icon is-large like"></i></div>
+          <h3 class="pro-h3">Performance Ads</h3>
+          <p class="pro-p-small">
+            Nu cheltuim pe like-uri, investim in vanzari. Aducem trafic super calibrat prin tuneluri de achizitie
+            testate.
+          </p>
+          <ul class="nes-list is-disc pro-list">
+            <li>Meta (FB/IG) Ads</li>
+            <li>Google Search/Max</li>
+            <li>TikTok Video Ads</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="nes-container is-dark with-title is-rounded service-card">
+          <p class="title">Arts_Branch</p>
+          <div class="icon-line"><i class="nes-icon is-large trophy"></i></div>
+          <h3 class="pro-h3">Graphic Design</h3>
+          <p class="pro-p-small">
+            Creez vizualuri care opresc scroll-ul utilizatorilor. Banner-ele, posterele si etichetele comunica direct
+            valoarea.
+          </p>
+          <ul class="nes-list is-circle pro-list">
+            <li>Bannere Ads (Hooks)</li>
+            <li>Postere & Print</li>
+            <li>Design Etichete Brand</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================
+         STATS BAND (STRICT BLOCKS)
+         =============================== -->
+    <section class="section-padding" id="stats">
+      <div class="nes-container is-dark stats-band">
+        <div class="stat-block">
+          <span class="nes-text is-primary stat-num">100%</span>
+          <span class="stat-label">Cod Custom Scris</span>
+        </div>
+        <div class="stat-block">
+          <span class="nes-text is-success stat-num">6+</span>
+          <span class="stat-label">Ani in Sistem</span>
+        </div>
+        <div class="stat-block">
+          <span class="nes-text is-warning stat-num">#1</span>
+          <span class="stat-label">Prioritate: ROAS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================
+         CONTACT (PERFECT ALIGNMENT)
+         =============================== -->
+    <section class="section-padding" id="contact">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h2 class="pro-h2">Misiune noua?</h2>
+          <p class="pro-p">
+            Caut clienti care vor o baza stabila, scalabila si extrem de rapida.
+            Spune-mi de ce ai nevoie.
+          </p>
+          <div class="nes-container is-dark is-rounded comm-box">
+            <p><i class="nes-icon is-small heart"></i> <strong>Punct de contact:</strong></p>
+            <p class="nes-text is-primary">contact@webalex.ro</p>
+            <br>
+            <p><i class="nes-icon is-small star"></i> <strong>Status curent:</strong></p>
+            <p class="nes-text is-success">Accept Misiuni (Remote)</p>
+            <p class="nes-text is-warning">Misiuni in curs: 4</p>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="nes-container is-dark with-title">
+            <p class="title">Formular_Comanda</p>
+            <form id="mission-form" name="contact" method="POST" action="send.php">
+
+              <div class="nes-field form-spacing">
+                <label for="name_field">ID Jucator (Nume/Brand)</label>
+                <input type="text" id="name_field" name="name" class="nes-input is-dark" placeholder="John Doe"
+                  title="Un nume / Un SRL/PFA" required>
+              </div>
+
+              <div class="nes-field form-spacing">
+                <label for="email_field">Conexiune (Email)</label>
+                <input type="email" id="email_field" name="email" class="nes-input is-success"
+                  placeholder="compania@mail.ro" title="Așteptat: Adresa de E-mail valabila." required>
+              </div>
+
+              <div class="nes-field form-spacing">
+                <label for="phone_field">Conexiune (Telefon)</label>
+                <input type="tel" id="phone_field" name="phone" class="nes-input is-success" placeholder="0740404040"
+                  pattern="^07[0-9]{8}$" oninput="this.value = this.value.replace(/[^0-9]/g, '')" minlength="10"
+                  maxlength="10" title="Așteptat: Număr de România format din 10 cifre (începând cu 07)" required>
+              </div>
+
+              <div class="nes-field form-spacing">
+                <label for="textarea_field">Brief Misiune</label>
+                <textarea id="textarea_field" name="message" class="nes-textarea is-dark"
+                  placeholder="Vreau un site web..." required></textarea>
+              </div>
+
+              <!-- Hidden honeypot field for spam protection -->
+              <input type="hidden" name="bot-field" />
+
+              <div class="form-spacing" style="text-align: right;">
+                <button type="submit" class="nes-btn is-primary">Trimite Log-ul</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===============================
+         SEO AUDIT BUTTON (BONUS)
+         =============================== -->
+    <section class="section-padding" style="padding-top: 0; text-align: center;" id="seo">
+      <div class="nes-container is-dark with-title" style="max-width: 800px; margin: 0 auto; display: inline-block;">
+        <p class="title">Sistem_Bonus</p>
+        <p class="pro-p" style="margin-bottom: 25px;">
+          Ai deja un site si vrei sa-i verifici scorul tehnic?<br>
+          Incearca gratuit sistemul de audit SEO - ALEX SEO AUDIT.
+        </p>
+        <a href="nes-seo-hub/index.html" class="nes-btn is-warning" target="_blank" rel="noopener noreferrer">Lanseaza
+          ALEX SEO AUDIT</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-wrap">
+    <div class="nes-container is-dark footer-container">
+      <p>&copy; 2026 ALEX WEB | Made with <i class="nes-icon heart is-small"></i> by Tamas Alex</p>
+      <p style="font-size: 0.6rem; margin-top: 10px; color: #888;">Structura valida HTML5. Built entirely with NES.css.
+      </p>
+      <p style="font-size: 0.6rem; margin-top: 10px; color: #888;">Music ©1996 Quazar / Sanxion - Hybrid Song or Funky
+        Stars
+      </p>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="nes-container is-dark is-rounded"
+    style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 650px; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <p class="title" style="margin-bottom: 10px; font-size: 0.9rem;">Cookies & Tracking</p>
+    <p class="pro-p-small" style="font-size: 0.65rem; margin-bottom: 15px; line-height: 1.4;">
+      Acest site foloseste cookie-uri (Google Analytics, Ads, GTM, Meta Pixel) pentru a analiza traficul publicitar.
+      Apasand "Accept Toate" esti de acord cu utilizarea acestora pentru integrarea algoritmilor de marketing.
+    </p>
+    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+      <button id="decline-cookies" class="nes-btn is-error is-small"
+        style="font-size: 0.7rem; padding: 4px 8px;">Refuz</button>
+      <button id="accept-cookies" class="nes-btn is-success is-small"
+        style="font-size: 0.7rem; padding: 4px 8px;">Accept Toate</button>
+    </div>
+  </div>
+
+  <!-- Dialogul Natvi NES -->
+  <dialog class="nes-dialog is-dark is-rounded" id="dialog-success">
+    <form method="dialog">
+      <p class="title">CONFIRMARE</p>
+      <p class="pro-p-small">Log-ul a fost salvat in baza de date si va fi citit in curand. Iti multumesc pentru
+        conexiune!</p>
+      <menu class="dialog-menu" style="margin-top: 30px;">
+        <button class="nes-btn is-success" id="close-dialog-btn">INCHIDE</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- Removed Floating Buttons (Moved to Navbar) -->
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/40732061792?text=Buna%20ziua!%20As%20dori%20mai%20multe%20detalii%20despre%20website-uri%20Multumesc."
+    class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
+    <i class="nes-icon whatsapp is-large"></i>
+  </a>
+
+  <!-- Audio Background -->
+  <audio id="bg-music" loop>
+    <source src="Music/videoplayback.m4a" type="audio/m4a">
+    <source src="Music/videoplayback.weba" type="audio/webm">
+  </audio>
+
+  <!-- Script minimal -->
+  <script src="app.js"></script>
+
+  <!-- Hyperdrive Starfield Script -->
+  <script>
+    /* =========================================
+       HYPERDRIVE STARFIELD — smooth, non-epileptic
+       Stars drift slowly outward from centre,
+       then streak into warp lines as they near edge.
+       Speed is kept gentle to avoid strobing.
+    ========================================= */
+    (function () {
+      const canvas = document.getElementById('hyperdrive-canvas');
+      const ctx = canvas.getContext('2d');
+
+      const NUM_STARS = 320;
+      const BASE_SPEED = 0.35;   // very slow at centre
+      const MAX_SPEED = 2.8;    // gentle max warp speed
+      const WARP_START = 0.55;   // fraction of radius where streak begins
+
+      let W, H, CX, CY, MAX_R;
+      let stars = [];
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        CX = W / 2;
+        CY = H / 2;
+        MAX_R = Math.sqrt(CX * CX + CY * CY);
+      }
+
+      function randomStar() {
+        // random angle, start near centre
+        const angle = Math.random() * Math.PI * 2;
+        const r = Math.random() * MAX_R * 0.25;
+        return {
+          angle,
+          r,
+          size: Math.random() * 1.4 + 0.3,
+          // Colour: mostly white/blue-white, occasional warm
+          hue: Math.random() < 0.15 ? 200 + Math.random() * 40 : 220 + Math.random() * 20,
+          alpha: 0.6 + Math.random() * 0.4
+        };
+      }
+
+      function initStars() {
+        stars = [];
+        for (let i = 0; i < NUM_STARS; i++) stars.push(randomStar());
+      }
+
+      function draw() {
+        // Dark space background with slight fade trail
+        if (document.body.classList.contains('light-theme')) {
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+        } else {
+          ctx.fillStyle = 'rgba(2, 4, 18, 0.45)';
+        }
+        ctx.fillRect(0, 0, W, H);
+
+        for (let i = 0; i < stars.length; i++) {
+          const s = stars[i];
+
+          // Speed ramps up as star moves away from centre
+          const progress = s.r / MAX_R;          // 0 → 1
+          const speed = BASE_SPEED + (MAX_SPEED - BASE_SPEED) * (progress * progress);
+          s.r += speed;
+
+          const x = CX + Math.cos(s.angle) * s.r;
+          const y = CY + Math.sin(s.angle) * s.r;
+
+          if (s.r > MAX_R || x < 0 || x > W || y < 0 || y > H) {
+            stars[i] = randomStar();
+            continue;
+          }
+
+          // Streak length: only visible past WARP_START threshold
+          let streakLen = 0;
+          if (progress > WARP_START) {
+            streakLen = (progress - WARP_START) / (1 - WARP_START) * 28 * (speed / MAX_SPEED);
+          }
+
+          const brightness = Math.min(1, 0.4 + progress * 0.9);
+          const alpha = s.alpha * brightness;
+
+          if (streakLen > 0.5) {
+            // Draw trailing streak
+            const tx = x - Math.cos(s.angle) * streakLen;
+            const ty = y - Math.sin(s.angle) * streakLen;
+            const grad = ctx.createLinearGradient(tx, ty, x, y);
+
+            if (document.body.classList.contains('light-theme')) {
+              grad.addColorStop(0, `hsla(0,0%,0%,0)`);
+              grad.addColorStop(1, `hsla(0,0%,0%,${alpha})`);
+            } else {
+              grad.addColorStop(0, `hsla(${s.hue},90%,90%,0)`);
+              grad.addColorStop(1, `hsla(${s.hue},90%,98%,${alpha})`);
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(tx, ty);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = s.size * (0.6 + progress * 0.8);
+            ctx.stroke();
+          } else {
+            // Simple dot
+            ctx.beginPath();
+            ctx.arc(x, y, s.size * (0.3 + progress * 0.7), 0, Math.PI * 2);
+
+            if (document.body.classList.contains('light-theme')) {
+              ctx.fillStyle = `hsla(0,0%,0%,${alpha})`;
+            } else {
+              ctx.fillStyle = `hsla(${s.hue},80%,95%,${alpha})`;
+            }
+
+            ctx.fill();
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', () => { resize(); initStars(); });
+      resize();
+      initStars();
+      draw();
+    })();
+  </script>
+</body>
+
+</html>

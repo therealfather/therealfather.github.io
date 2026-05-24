@@ -1,0 +1,487 @@
+/*
+   TAMAS ALEX PORTFOLIO - STRICTLY PROFI NES.CSS
+   Scopul acestui CSS este DOAR aranjarea în pagină și legibilitatea.
+   Toate esteticile vizuale aparțin nativ librăriei NES.css.
+*/
+
+:root {
+  --app-bg: #12151A; /* Un negru profund dar usor albăstrui */
+  --text-main: #ffffff;
+  --text-dim: #d1d5db;
+  --text-muted: #9ca3af;
+  --nav-bg: rgba(33, 37, 41, 0.95);
+  --input-bg: #1a1e24;
+}
+
+body.light-theme {
+  --app-bg: #f9fafb; /* Light clean grey */
+  --text-main: #111827; /* Near black */
+  --text-dim: #374151;
+  --text-muted: #6b7280;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --input-bg: #ffffff;
+}
+
+/* =========================================
+   HYPERDRIVE CANVAS BACKGROUND
+   ========================================= */
+#hyperdrive-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* =========================================
+   BASE RESETS & LEGIBILITY
+   Sectiunea de baza face fontul 'Press Start 2P'
+   usor de citit prin whitespace si line-height
+   ========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-bg);
+  color: var(--text-main);
+  /* Orice text din interiorul body-ului nativ isi ia fontul din nes.css 
+     dar ne asiguram ca linia este inalta. */
+  font-family: 'Press Start 2P', cursive;
+  line-height: 2.2 !important; /* FOARTE IMPORTANT pt legibilitate 8-bit */
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+li, p, span, a, label {
+  line-height: 2 !important;
+}
+
+/* Evitare text nes.css inghesuit & Constrast Maxim */
+.pro-h1 {
+  font-size: 1.4rem;
+  line-height: 1.6 !important;
+  margin-bottom: 30px;
+  color: var(--text-main);
+}
+.pro-h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.6 !important;
+  color: var(--text-main);
+}
+.pro-h3 {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  min-height: 45px; /* Aliniere row in grid */
+  color: var(--text-main);
+}
+.pro-p {
+  font-size: 0.8rem;
+  margin-bottom: 35px;
+  color: var(--text-dim);
+}
+.pro-p-small {
+  font-size: 0.65rem;
+  margin-bottom: 25px;
+  color: var(--text-muted);
+  flex-grow: 1; /* Pentru inaltime egala in carduri */
+}
+.pro-sub {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.pro-list {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  text-align: left;
+}
+.pro-list li { margin-bottom: 12px; }
+
+/* =========================================
+   LAYOUT ALIGNMENT (GRID & FLEX)
+   Ceea ce face aspectul sa aiba forma
+   ========================================= */
+
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 20px 40px 20px;
+}
+
+.section-padding {
+  padding: 70px 0;
+}
+
+/* --- NAV --- */
+.nav-wrapper {
+  position: fixed;
+  top: 15px; left: 0; right: 0;
+  z-index: 1000;
+  display: flex; justify-content: center;
+  padding: 0 20px;
+}
+
+.navbar {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem 2rem !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  /* Un pic de blur pt feeling pro? (e opțional, dar util cand scrollezi peste elemente vizibile) */
+  background-color: var(--nav-bg) !important;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  display: flex; align-items: center; gap: 15px;
+  font-size: 1.1rem; color: var(--text-main);
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 20px;
+}
+.nav-links a.nes-badge span {
+  font-size: 0.6rem;
+  padding: 6px 12px;
+}
+
+@media (max-width: 768px) {
+  .nav-links .nes-badge { display: none; }
+}
+
+/* --- HERO --- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 950px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+.hero-text-box {
+  padding: 3rem !important;
+}
+
+.type-container {
+  font-size: 0.65rem;
+  background-color: #000;
+  color: #fff !important;
+  padding: 10px 15px;
+  border: 2px solid #555;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.type-cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero-buttons {
+  display: flex; gap: 15px; flex-wrap: wrap;
+}
+
+.hero-visual-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.terminal-graphic {
+  width: 100%;
+  max-width: 400px;
+  /* Shadow for 3D retro feel */
+  box-shadow: 12px 12px 0px rgba(0,0,0,0.8);
+  border-color: #fff !important;
+  background-color: #000 !important;
+}
+
+.terminal-graphic .title {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.terminal-body {
+  padding: 10px;
+  text-align: left;
+}
+
+.terminal-body p {
+  font-size: 0.6rem;
+  line-height: 1.8 !important;
+  margin-bottom: 15px;
+}
+
+.float-anim {
+  animation: floatPx 4s ease-in-out infinite;
+}
+@keyframes floatPx {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* --- SERVICES --- */
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.5rem !important;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-line { margin: 15px 0 30px 0; }
+
+
+/* --- STATS BAND --- */
+.stats-band {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 3rem !important;
+  text-align: center;
+}
+.stat-block { display: flex; flex-direction: column; gap: 10px;}
+.stat-num { font-size: 1.5rem; }
+.stat-label { font-size: 0.7rem; color: #888; }
+
+/* --- CONTACT --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-info { padding-top: 10px; }
+
+.comm-box {
+  padding: 2rem !important;
+  margin-top: 40px;
+}
+.comm-box p { font-size: 0.7rem; margin-bottom: 5px; }
+
+.form-wrapper {
+  padding: 2rem !important;
+}
+
+.form-spacing { margin-bottom: 25px; }
+.form-spacing label { 
+  font-size: 0.75rem; 
+  display: block; 
+  margin-bottom: 10px; 
+  color: var(--text-main);
+}
+
+/* Fix input contrast */
+.nes-input, .nes-textarea {
+  color: var(--text-main) !important; 
+  background-color: var(--input-bg) !important;
+  border-color: var(--text-main) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Asigura inaltime in textareas pt aspect pro */
+.nes-textarea { min-height: 120px; }
+
+/* Dialog Centrat */
+.nes-dialog { text-align: center; padding: 2.5rem !important;}
+.dialog-menu { display: flex; justify-content: center; }
+
+/* --- FOOTER --- */
+.footer-wrap {
+  padding: 0 20px 40px 20px;
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-container {
+  text-align: center;
+  padding: 2rem !important;
+}
+.footer-container p { font-size: 0.8rem; margin: 0; }
+
+/* --- FLOATING WHATSAPP --- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  animation: floatPx 4s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 50%; /* if needed, otherwise transparent bg handles it */
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* --- THEME TOGGLE FLOAT --- */
+.theme-toggle-float {
+  position: fixed;
+  top: 120px;
+  right: 25px;
+  z-index: 1001;
+  padding: 10px 15px !important;
+  font-size: 0.8rem !important;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-float:hover {
+  transform: scale(1.1);
+}
+
+/* --- MUSIC TOGGLE FLOAT --- */
+.music-toggle-float {
+  position: fixed;
+  top: 180px;
+  right: 25px;
+  z-index: 1001;
+  padding: 10px 15px !important;
+  font-size: 0.8rem !important;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.8);
+  transition: transform 0.2s ease;
+}
+
+.music-toggle-float:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .music-toggle-float {
+    top: auto;
+    bottom: 160px; /* Above whatsapp */
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-float {
+    top: auto;
+    bottom: 100px; /* Above whatsapp */
+  }
+}
+
+/* --- COOKIE BANNER FIX --- */
+#cookie-banner:not(.is-dark) {
+  background-color: #ffffff;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS FIXES (< 768px)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* Fix container padding out of bounds */
+  .main-container { padding: 100px 15px 30px 15px; }
+  .section-padding { padding: 40px 0; }
+  
+  /* Navbar squeeze */
+  .navbar { padding: 0.8rem 1rem !important; }
+  .logo span { font-size: 0.8rem; }
+  
+  /* Hamburger Menu Toggle */
+  #mobile-menu-btn { display: inline-block !important; margin-left: auto; }
+  
+  /* Dropdown behavior for mobile */
+  .nav-links {
+    display: none; /* ascuns prin default de CSS daca nu e activ */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 4px solid var(--text-main);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    gap: 15px;
+    align-items: center;
+  }
+  .nav-links.active {
+    display: flex !important;
+  }
+  .nav-links .nes-badge { display: block; width: 80%; }
+  .nav-links .nes-btn { width: 80%; font-size: 0.7rem; padding: 6px 10px; }
+  
+  /* REDUCERE Float Buttons si pozitionare in stanga pe mobil */
+  .theme-toggle-float, .music-toggle-float {
+    padding: 6px 10px !important;
+    font-size: 0.6rem !important;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+  }
+  .theme-toggle-float { bottom: 90px !important; top: auto; left: 20px !important; right: auto !important; }
+  .music-toggle-float { bottom: 140px !important; top: auto; left: 20px !important; right: auto !important; }
+
+  /* Typography resize for readability */
+  .pro-h1 { font-size: 1rem; line-height: 1.4 !important; }
+  .pro-h2 { font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4 !important; }
+  
+  /* Grid padding resets for small mobile cards */
+  .hero-text-box, .comm-box, .form-wrapper, .service-card, .stats-band, .footer-container {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  /* Terminal Graphic Scale Down */
+  .terminal-graphic { max-width: 100%; }
+  .terminal-body p { font-size: 0.55rem; }
+  
+  /* Force Services Grid to single column without overflow */
+  .services-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Form & Stats Breakdowns */
+  .contact-grid { gap: 30px; }
+  .stats-band { gap: 20px; flex-direction: column; align-items: center; }
+  
+  /* Full-width buttons on mobile for thumb friendliness */
+  .hero-buttons { flex-direction: column; width: 100%; gap: 10px; }
+  .hero-buttons .nes-btn { width: 100%; text-align: center; }
+  
+  /* Make Contact inputs perfectly responsive */
+  .nes-input, .nes-textarea {
+     width: 100%; 
+     box-sizing: border-box; 
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra-small phones */
+  .logo i { transform: scale(0.8); }
+  .type-container { font-size: 0.55rem; padding: 8px 10px; }
+  .nav-links .nes-btn, .nav-links .nes-badge { width: 95%; }
+}
