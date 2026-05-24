@@ -101,10 +101,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(missionForm);
       
       // Send to PHP
-      fetch('send.php', {
+      fetch('https://formspree.io/f/xvzybgzb', {
         method: 'POST',
-        body: formData
-      })
+        body: formData,
+        headers: {
+        'Accept': 'application/json'
+    }
+  })
+.then(response => response.json())
+.then(data => {
       .then(response => response.json())
       .then(data => {
         if (data.success) {
