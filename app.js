@@ -88,22 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if(missionForm) {
     missionForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+    
       const submitBtn = missionForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Se trimite...';
       submitBtn.disabled = true;
-      
+    
       const formData = new FormData(missionForm);
-      
+    
       fetch('https://formspree.io/f/xvzybgzb', {
         method: 'POST',
         body: formData
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network error');
-        }
+      .then(() => {
         document.getElementById('dialog-success').showModal();
         missionForm.reset();
       })
