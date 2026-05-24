@@ -101,7 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
         body: formData
       })
       .then(() => {
-        document.getElementById('dialog-success').showModal();
+        const dialog = document.getElementById('dialog-success');
+          if (dialog && dialog.showModal) {
+            dialog.showModal();
+          } else {
+          alert('Misiune trimisa cu succes!');
+      }
         missionForm.reset();
       })
       .catch(error => {
